@@ -3,7 +3,7 @@
 #include "MonitoringEndState.h"
 #include <Arduino.h>
 
-const int thirtySeconds = 30000;
+const int fourtyFiveSeconds = 45000;
 const int fiveMinutes = 300000;
 
 ConfirmingStartState::ConfirmingStartState() {
@@ -16,7 +16,7 @@ State* ConfirmingStartState::loop() {
   if(vibrationDetected()) {
     lastVibration = millis();
   }
-  if(millis() - lastVibration >= thirtySeconds) {
+  if(millis() - lastVibration >= fourtyFiveSeconds) {
     return new IdleState();
   }
   if(millis() - start >= fiveMinutes) {
